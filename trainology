@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú Lateral con Contenido</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  #sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+  }
+  #sidebar a {
+    padding: 15px 15px 15px 30px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  #sidebar a:hover {
+    color: #f1f1f1;
+  }
+  #menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #ffffff;
+    z-index: 999;
+  }
+  #content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <a href="#" id="productos">Grupos Musculares</a>
+  <a href="#" id="servicios1">Entrenamiento en Casa</a>
+  <a href="#" id="servicios2">Entrenamiento en Gym</a>
+  <a href="#" id="contacto">Contacto</a>
+</div>
+
+<div id="menu-toggle">&#9776;</div>
+
+<div id="content">
+  <center> <h1>Bienvenido a Trainology</h1> </center>
+  
+  <p><h1><div style="text-align: center; width 150px; height: 90px;"><font color=><font face="serif">"¡Bienvenido a Trainology, nuestro mundo de transformación y superacion personal a través del entrenamiento!" </div></h1></font></p>
+  <p><div style="text align:center ; height: 50px">Aquí encontrarás las herramientas necesarias para lograr una versión mejorada de ti mismo/a, encontrarás ejercisios por grupo muscular tanto para aquellos que tienen la posibilidad de ir a entrenar, como para aquellos que deciden entrenar desde su hogar.</p></div>
+  <img src="https://static.wixstatic.com/media/549dc6_98cff03e48794dacbdc5f6f928141b6c~mv2.jpg" align="bottom" width="315" height="315" margin-top="250px">
+  <img src="https://static.wixstatic.com/media/549dc6_9736d28467ff4f35a62e3e6006575049~mv2.jpg" align="bottom" width="415" height="315" >
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.getElementById("menu-toggle");
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+
+  const pages = {
+    
+    
+    contacto: "<h1>Contacto</h1><p>Hola Mundo en la página de Contacto.</p>",
+    
+    productos: "<h1><center>Grupos Musculares</h1><center><p> <h3> El tren superior es la zona del organismo humano que están en la parte superior del cuerpo, los músculos que se hallan en esta zona son: </h3>.</center> <img src=https://static.wixstatic.com/media/549dc6_aad432a236d84124b1a55eb7f2b7f4d0~mv2.jpg/v1/fill/w_356,h_539,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/culturista-masculino-camisa-sosteniendo-pesas.jpg%22%3E  width=467 height=644 <div style=text-align: center;></p>",
+    
+    servicios1: "<h1>Entrenamiento en Casa</h1><p>hello word.</p>",
+
+    servicios2: "<h1>Entrenamiento en Gym</h1><p>hello word.</p>",
+
+    // Puedes agregar más contenido para otras páginas aquí
+  };
+
+  menuToggle.addEventListener("click", function() {
+    if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+      sidebar.style.width = "250px";
+    } else {
+      sidebar.style.width = "0";
+    }
+  });
+
+  sidebar.addEventListener("click", function(event) {
+    if (event.target && event.target.id in pages) {
+      content.innerHTML = pages[event.target.id];
+    }
+  });
+});
+</script>
+</body>
+</html>
